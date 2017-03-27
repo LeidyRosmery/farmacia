@@ -1,0 +1,17 @@
+fieldset{
+  display : inline-block;
+}
+
+body{
+  text-align: center ;
+  padding-top: 10px;
+}
+form{
+  border-style: solid;
+}
+button{
+  margin: 20px auto;
+}
+span{
+  color:red;
+}
