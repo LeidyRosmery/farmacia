@@ -10,7 +10,17 @@ for (var i = 0; i < input.length; i++) {
   if(e.target.value.trim().length==0){
     e.target.value="";
     e.target.nextElementSibling.nextElementSibling.innerText= "* Este campo es obligatorio";
+  }else {
+      e.target.nextElementSibling.nextElementSibling.innerText= "";
   }
+ if(this.getAttribute("type")=="text"){
+   var arrDato=this.value.split(" ");
+   var datoConMayuscula="";
+   for (var i = 0; i < arrDato.length; i++) {
+     datoConMayuscula+=arrDato[i].charAt(0).toUpperCase()+ arrDato[i].substring(1).toLowerCase() + " " ;
+   }
+   this.value=datoConMayuscula;
+ }
 }
 }
 console.log(input);
@@ -55,9 +65,7 @@ function limpiar(){
   }
 });*/
 
-var validaEdad =function(e){
 
-}
 var soloLetras=function(e){
   var codigoTecla=e.keyCode;
   if ((codigoTecla>=97 && codigoTecla <=122)|| (codigoTecla>=65 && codigoTecla <= 90) || codigoTecla==32 || codigoTecla==39) {
@@ -66,6 +74,8 @@ return true;
     return false;
   }
 };
+
+
 nombre.onkeypress=soloLetras;
 apellido.onkeypress=soloLetras;
 document.getElementById("enviar").addEventListener("click",function(e){
