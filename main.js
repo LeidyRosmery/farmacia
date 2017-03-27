@@ -4,11 +4,14 @@ var direccion = document.getElementById("direccion");
 var edad=document.getElementById("edad");
 var div = document.getElementById("mostrar");
 var input=document.getElementsByClassName("input");
-input[0].onblur=function(e){
-  if(this.value.trim().length==0){
-    this.value="";
-    this.nextElementSibling.nextElementSibling.innerText= "* Este campo es obligatorio";
+// evalua cada uno dependiendo del focus
+for (var i = 0; i < input.length; i++) {
+  input[i].onblur=function(e){
+  if(e.target.value.trim().length==0){
+    e.target.value="";
+    e.target.nextElementSibling.nextElementSibling.innerText= "* Este campo es obligatorio";
   }
+}
 }
 console.log(input);
 var fichasArr=[];
@@ -37,6 +40,9 @@ function limpiar(){
   edad.value="";
   direccion.value="";
 }
+
+
+// funciona con addeventliste
 /*document.getElementById("nombre").addEventListener("keypress",function(e){
   var tecla = e.keyCode ;
 
